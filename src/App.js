@@ -11,7 +11,8 @@ import Login from './login/Login'
 import LoginRedirect from './login/LoginRedirect'
 import PrivateRoute from './login/PrivateRoute'
 import { connect } from 'react-redux'
-  
+import { logoutUserAction } from './login/actions/actions'
+
 
 class App extends Component {
   render() {
@@ -19,10 +20,14 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/login">login</Link></li>
-            </ul>
+            <header>
+              <Link style={{ margin: "0 10px" }} to="/">Home</Link>
+              { this.props.authenticated ? <Link style={{ margin: "0 10px" }} 
+              to="/login" onClick={() => {this.props.logoutUserAction()}}>logout</Link> : <Link style={{ margin: "0 15px" }} to="/login">login</Link>
+
+              }
+              
+            </header>
 
             <hr />
 
@@ -38,11 +43,17 @@ class App extends Component {
 
 
 const mapStateToProps = state => {
-    return {
-      authenticated: state.login.authenticated,
-      token: state.login.token
-    }
+  return {
+    authenticated: state.login.authenticated,
+    token: state.login.token
   }
+}
 
-export default connect(mapStateToProps)(App)
+
+const mapDispatchToProps = {
+  logoutUserAction
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 // export default App;

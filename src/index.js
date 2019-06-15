@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import AsyncContainer from './AsyncContainer/AsyncContainer';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from "react-redux";
 
@@ -9,7 +9,7 @@ import store from "./store/index";
 
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <AsyncContainer />
     </Provider>,
 
     document.getElementById('root'));
