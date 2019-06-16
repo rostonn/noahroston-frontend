@@ -34,6 +34,11 @@ export const loginUserAction = (token) => {
 
 export const logoutUserAction = () => {
   sessionStorage.removeItem("token")
+  if (typeof (window.FB) !== "undefined") {
+    window.FB.api('me/permissions?success:true', 'delete', function(response){
+      console.log('Logged out', response)
+    })
+  }
   return {
     type: 'LOGOUT'
   }
@@ -41,7 +46,7 @@ export const logoutUserAction = () => {
 
 export const validateTokenFromSessionStorage = () => {
   const token = sessionStorage.getItem("token")
-  if(!token) {
+  if (!token) {
     return {
       type: 'TOKEN_CHECKED_FALSE'
     }
@@ -55,14 +60,16 @@ export const validateTokenFromSessionStorage = () => {
       }
     })
       .then(function (response) {
-        console.log(response)
-        if(response.status === 200) {
-          dispatch({type: 'TOKEN_CHECKED_TRUE'})
+        if (response.status === 200) {
+          var user = JSON.parse(atob(token.split(".")[1]))
+
+
+          dispatch({ type: 'TOKEN_CHECKED_TRUE', token: token, user: user })
         }
-        dispatch({type: 'TOKEN_CHECKED_FALSE', token: token})
+        dispatch({ type: 'TOKEN_CHECKED_FALSE', token: token })
       })
       .catch(function (ex) {
-        dispatch({type: 'TOKEN_CHECKED_FALSE'})
+        dispatch({ type: 'TOKEN_CHECKED_FALSE' })
       })
   }
 }

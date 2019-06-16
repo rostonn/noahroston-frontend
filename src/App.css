@@ -26,3 +26,112 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.svgIcon {
+  height: 24px;
+  width: 24px;
+}
+
+.imgClass {
+  display: none;
+  height: 24px;
+  width: 24px;
+
+  border-top-color: initial;
+  border-top-style: initial;
+  border-top-width: 0px;
+  border-right-color: initial;
+  border-right-style: initial;
+  border-right-width: 0px;
+  border-bottom-color: initial;
+  border-bottom-style: initial;
+  border-bottom-width: 0px;
+  border-left-color: initial;
+  border-left-style: initial;
+  border-left-width: 0px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  white-space: nowrap;
+}
+
+.spanClass {
+  height: 24px;
+  margin: 8px;
+  float: left;
+  white-space: nowrap;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  text-align: left;
+
+  border: 0;
+  border-top-color: initial;
+  border-top-style: initial;
+  border-top-width: 0px;
+  border-right-color: initial;
+  border-right-style: initial;
+  border-right-width: 0px;
+  border-bottom-color: initial;
+  border-bottom-style: initial;
+  border-bottom-width: 0px;
+  border-left-color: initial;
+  border-left-style: initial;
+  border-left-width: 0px;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  border-collapse: collapse;
+  border-spacing: 0;
+  -webkit-border-horizontal-spacing: 0px;
+  -webkit-border-vertical-spacing: 0px;
+
+  background-color: #4267b2;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.fbTable {
+  background-color: #4267b2;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.fbOuterDiv {
+  width: 240px;
+  border-radius: 4px;
+  max-width: 400px;
+  min-width: 240px;
+  background-color: #e9ebee;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+  font-family: Helvetica, Arial, sans-serif;
+
+  background: transparent;
+  line-height: 1.28;
+  overflow: hidden;
+  font-size: 11px;
+  background: #fff;
+  color: #1c1e21;
+  direction: ltr;
+  margin: 0;
+  padding: 0;
+  unicode-bidi: embed;
+
+}
+
+.fbLoginMessage {
+  font-size: 16px;
+  margin-right: 12px;
+  border: none;
+  font-family: Helvetica, Arial, sans-serif;
+  letter-spacing: .25px;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: clip;
+  white-space: nowrap;
+}

@@ -12,7 +12,6 @@ class AsyncContainer extends Component {
   }
 
   render() {
-      console.log("TokenChecked Component", this.props.tokenChecked)
     return (
       <div>
           { this.props.tokenChecked ? <App/>:<span>Loading...</span>}

@@ -2,7 +2,8 @@ let initialState = {
     authenticated: null,
     token: '',
     tokenChecked: false,
-    nextRedirect: '/home'
+    nextRedirect: '/home',
+    user: null
 }
 
 export default function login(state = initialState, action) {
@@ -11,7 +12,8 @@ export default function login(state = initialState, action) {
             return {
                 ...state,
                 authenticated: false,
-                token: ''
+                token: '',
+                user: null
             }
         case 'LOGIN':
             return {
@@ -20,7 +22,6 @@ export default function login(state = initialState, action) {
                 token: action.token
             }
         case 'TOKEN_CHECKED_FALSE':
-            console.log("Token Checked false")
             return {
                 ...state,
                 tokenChecked: true
@@ -30,7 +31,8 @@ export default function login(state = initialState, action) {
                 ...state,
                 tokenChecked: true,
                 authenticated: true,
-                token: action.token
+                token: action.token,
+                user: action.user
             }
         default:
             return state

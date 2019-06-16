@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -20,13 +19,21 @@ class App extends Component {
       <div className="App">
         <Router>
           <div>
-            <header>
-              <Link style={{ margin: "0 10px" }} to="/">Home</Link>
-              { this.props.authenticated ? <Link style={{ margin: "0 10px" }} 
-              to="/login" onClick={() => {this.props.logoutUserAction()}}>logout</Link> : <Link style={{ margin: "0 15px" }} to="/login">login</Link>
-
-              }
+            <header style={{ display: "flex", justifyContent: "space-between" }}>
+              <h1 style={{ marginLeft: "10px", display: "inline-block" }}>NoahRoston.com</h1>
               
+              {/* <Link style={{ margin: "0 10px", lineHeight: "79.875px", verticalAlign: "middle" }} to="/">Home</Link> */}
+              
+              {this.props.authenticated && <Link style={
+                { fontSize:"2em",
+               margin: "0 10px", 
+               lineHeight: "79.875px", 
+               verticalAlign: "middle",
+               textDecoration: "none" 
+              }}
+                to="/login" onClick={() => { this.props.logoutUserAction() }}>logout</Link>
+              }
+
             </header>
 
             <hr />
