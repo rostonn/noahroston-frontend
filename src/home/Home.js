@@ -20,7 +20,7 @@ class Home extends Component {
         </p>
         <a rel="noopener noreferrer" target="_blank" href="https://github.com/rostonn/noahroston-frontend">github.com/rostonn/noahroston-frontend</a>
         <br/>
-        <a rel="noopener noreferrer" target="_blank" href="https://github.com/rostonn/noahroston-backend">github.com/rostonn/noahroston-backend</a>
+        <a rel="noopener noreferrer" target="_blank" href="https://github.com/rostonn/noahroston_backend">github.com/rostonn/noahroston_backend</a>
 
         </article>
       </div>
