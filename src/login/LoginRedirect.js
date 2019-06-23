@@ -2,9 +2,18 @@
 import React, { Component } from 'react';
 import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { HashLoader } from 'react-spinners';
+import { css } from '@emotion/core';
 import { loginUser } from './actions/actions'
 
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
+
 class LoginRedirect extends Component {
+
 
   constructor(props) {
     super()
@@ -14,6 +23,14 @@ class LoginRedirect extends Component {
 
   render() {
     return <div>
+      <div style={{ marginTop: "100px" }}>
+        <HashLoader
+          css={override}
+          sizeUnit={"px"}
+          size={250}
+          color={'#000000'}
+        />
+      </div>
       {(this.props.authenticated !== null && this.props.authenticated === false) &&
         <Redirect
           to={{

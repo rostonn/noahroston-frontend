@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
+import { css } from '@emotion/core';
+import { HashLoader } from 'react-spinners';
+
 import { withRouter, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login';
 // import FacebookLogin from 'react-facebook-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
-import { loginUser } from './actions/actions'
+import { loginUser, showLoader, hideLoader } from './actions/actions'
+
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 
 class Login extends Component {
 
@@ -15,15 +24,22 @@ class Login extends Component {
         const loginStyles = { margin: "5px 0" }
 
         const responseGoogle = (response) => {
+            if(response.error) {
+                this.props.hideLoader()
+            }
+            console.log(response)
+            
             var id_token = response.tokenObj.id_token;
             this.props.loginUser(id_token, 'google')
         }
 
         const responseFacebook = (response) => {
+            this.props.showLoader()
             this.props.loginUser(response.accessToken, "facebook")
         }
 
         const componentClicked = () => {
+            this.props.showLoader()
         }
 
         return (<div>
@@ -35,6 +51,7 @@ class Login extends Component {
                     }}
                 />
             }
+            { !this.props.loading ? <div>
             <a href={amazonUrl}
                 style={loginStyles}
                 id="LoginWithAmazon">
@@ -43,7 +60,7 @@ class Login extends Component {
                     width="195" height="46" />
             </a>
 
-            <div style={loginStyles}>
+            <div style={loginStyles} onClick={componentClicked}>
 
                 <GoogleLogin
                     clientId="1017567250931-f8o9bs3qj6o5r7ina2imkao6vjc7617c.apps.googleusercontent.com"
@@ -52,7 +69,7 @@ class Login extends Component {
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
                     theme="dark"
-                    onClick={componentClicked}
+                    
                 />
             </div>
 
@@ -96,22 +113,36 @@ class Login extends Component {
                     }
                 />
             </div>
+        </div>:<div style={{marginTop:"100px"}}>
+        <HashLoader
+                css={override}
+                sizeUnit={"px"}
+                size={250}
+                color={'#000000'}
+            />
+            </div>}
         </div>
         )
     }
 }
+
+// loading={false}
+// 
 
 const mapStateToProps = state => {
     return {
         name: state.home.name,
         authenticated: state.login.authenticated,
         token: state.login.token,
-        nextRedirect: state.login.nextRedirect
+        nextRedirect: state.login.nextRedirect,
+        loading: state.login.loading
     }
 }
 
 const mapDispatchToProps = {
-    loginUser
+    loginUser,
+    showLoader,
+    hideLoader
 };
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login))
 

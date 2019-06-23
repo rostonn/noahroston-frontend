@@ -3,7 +3,8 @@ let initialState = {
     token: '',
     tokenChecked: false,
     nextRedirect: '/home',
-    user: null
+    user: null,
+    loading: false
 }
 
 export default function login(state = initialState, action) {
@@ -33,6 +34,16 @@ export default function login(state = initialState, action) {
                 authenticated: true,
                 token: action.token,
                 user: action.user
+            }
+        case 'SHOW_LOADER':
+            return {
+                ...state,
+                loading: true
+            }
+        case 'HIDE_LOADER':
+            return {
+                ...state,
+                loading: false
             }
         default:
             return state

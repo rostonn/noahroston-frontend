@@ -13,14 +13,34 @@ export const loginUser = (code, provider) => {
       })
     })
       .then(function (response) {
+        if(response.status !== 200) {
+          throw Object.assign(
+            new Error("Unauthorized"),
+            { code: 403 }
+         );
+        }
+
         return response.text()
       })
       .then(function (token) {
+
+        dispatch(hideLoader())
         dispatch(loginUserAction(token))
+
       }).catch(function (ex) {
+        dispatch(hideLoader())
         dispatch(logoutUserAction())
       })
   }
+}
+
+export const showLoader = () => {
+  console.log("Showing loader...")
+return {type: 'SHOW_LOADER'}
+}
+
+export const hideLoader = () => {
+  return {type: 'HIDE_LOADER'}
 }
 
 export const loginUserAction = (token) => {
