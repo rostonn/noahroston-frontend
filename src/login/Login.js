@@ -21,7 +21,6 @@ class Login extends Component {
 
     render() {
         const amazonUrl = process.env.REACT_APP_AMAZON_LOGIN_URL
-        const loginStyles = { }
 
         const responseGoogle = (response) => {
             if(response.error) {

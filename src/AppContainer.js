@@ -3,8 +3,7 @@ import App from './App'
 import AsyncContainer from './AsyncContainer/AsyncContainer'
 import {
     BrowserRouter as Router,
-    Route,
-    Link
+    Route
   } from 'react-router-dom'
 import { connect } from 'react-redux'
 

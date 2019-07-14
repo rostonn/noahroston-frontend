@@ -1,28 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
 import {
-  BrowserRouter as Router,
-  Route,
   Link
 } from 'react-router-dom'
-import Home from './home/Home'
-import Login from './login/Login'
-import LoginRedirect from './login/LoginRedirect'
-import PrivateRoute from './login/PrivateRoute'
 import { connect } from 'react-redux'
 import { logoutUserAction } from './login/actions/actions'
 import { withStyles } from '@material-ui/styles';
 
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Drawer from '@material-ui/core/Drawer';
+// import IconButton from '@material-ui/core/IconButton';
+// import MenuIcon from '@material-ui/icons/Menu';
+// import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -31,12 +23,9 @@ import MailIcon from '@material-ui/icons/Mail';
 import Paper from '@material-ui/core/Paper';
 
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
-import ScrollableAnchor from 'react-scrollable-anchor'
 import { Link as ScrollLink, animateScroll as scroll, Element } from "react-scroll";
 
 
@@ -73,7 +62,6 @@ const styles = theme => ({
   h3: { paddingTop: "5px", paddingLeft: "100px" },
 });
 
-const liStyle = { textAlign: 'left', padding: '5px' }
 
 
 class App extends Component {
@@ -121,9 +109,9 @@ class App extends Component {
       <div className="App" onClick={this.closeDrawer} >
         <AppBar color="primary" position="sticky">
           <Toolbar>
-            <IconButton onClick={this.toggleDrawer} edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
+            {/* <IconButton onClick={this.toggleDrawer} edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
-            </IconButton>
+            </IconButton> */}
 
             <div style={{ display: "flex", margin: "0 auto" }}>
               <ScrollLink
@@ -183,9 +171,9 @@ class App extends Component {
           </Toolbar>
         </AppBar>
 
-        <Drawer open={this.state.open} >
+        {/* <Drawer open={this.state.open} >
           {this.sideList('left')}
-        </Drawer>
+        </Drawer> */}
 
         <div style={{ height: "700px", backgroundImage: `url(${process.env.PUBLIC_URL + '/cbm.jpg'})` }}>
           <div style={{ display: "flex", paddingTop: "25px" }}>
@@ -230,22 +218,22 @@ class App extends Component {
               <p>Oauth2 app within personal website. Written in React and Redux. Backend written in Go. Hosted in AWS using EC2 and Amazon Relational Database Service (RDS). Served with NGINX.
               </p>
               </article>
-              <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/noahroston-frontend">
+              <Link to="/oauth2" rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank">
                 <Button variant="contained" color="primary" className={classes.button}>
                   <span style={{height:"32px"}}></span>
                   <span style={{ marginLeft: "10px" }}>OAUTH2 Example</span>
                 </Button>
-              </a>
+              </Link>
               <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/noahroston-frontend">
                 <Button variant="contained" color="primary" className={classes.button}>
-                  <img src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
+                  <img alt="github" src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
                   <span style={{ marginLeft: "10px" }}>frontend repo</span>
                 </Button>
               </a>
 
               <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/noahroston_backend">
                 <Button variant="contained" color="primary" className={classes.button}>
-                  <img src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
+                  <img alt="github" src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
                   <span style={{ marginLeft: "10px" }}>backend repo</span>
                 </Button>
               </a>
@@ -268,7 +256,7 @@ class App extends Component {
 
               <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/Angular-Weather">
                 <Button variant="contained" color="primary" className={classes.button}>
-                  <img src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
+                  <img alt="github" src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
                   <span style={{ marginLeft: "10px" }}>Angular Weather Repo</span>
                 </Button>
               </a>
@@ -292,7 +280,7 @@ class App extends Component {
 
             <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/Angular-iPhone-Calculator">
               <Button variant="contained" color="primary" className={classes.button}>
-                <img src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
+                <img alt="github" src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
                 <span style={{ marginLeft: "10px" }}>Angular iPhone Calculator Repo</span>
               </Button>
             </a>
@@ -307,7 +295,7 @@ class App extends Component {
             </article>
             <a rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/watch?v=xr8SYePmGxw">
               <Button variant="contained" color="primary" className={classes.button}>
-                <img src={process.env.PUBLIC_URL + '/youtube_social_icon_white.png'}/>
+                <img alt="youtube" src={process.env.PUBLIC_URL + '/youtube_social_icon_white.png'}/>
                 <span style={{ marginLeft: "10px" }}>Raspberry Pi pH Controller</span>
               </Button>
             </a>
@@ -321,7 +309,7 @@ class App extends Component {
           <Paper>
             <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/noahroston/">
               <Button variant="contained"  className={classes.button}>
-                <img src={process.env.PUBLIC_URL + '/LI-In-Bug.png'}/>
+                <img alt="linkedin" src={process.env.PUBLIC_URL + '/LI-In-Bug.png'}/>
                 <span style={{ marginLeft: "10px" }}>Noah Roston</span>
               </Button>
             </a>

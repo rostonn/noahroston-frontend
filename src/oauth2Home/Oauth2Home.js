@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
@@ -11,12 +10,8 @@ import PrivateRoute from '../login/PrivateRoute'
 import UnprotectedComponent from '../unprotectedComponent/UnprotectedComponent'
 import { connect } from 'react-redux'
 import { logoutUserAction } from '../login/actions/actions'
-import Button from '@material-ui/core/Button';
 
 class Oauth2Home extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

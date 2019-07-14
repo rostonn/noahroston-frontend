@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import App from '../App'
 import { validateTokenFromSessionStorage } from '../login/actions/actions'
 import { connect } from 'react-redux'
 import Oauth2Home from '../oauth2Home/Oauth2Home'
