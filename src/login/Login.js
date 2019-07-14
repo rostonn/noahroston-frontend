@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import GoogleLogin from 'react-google-login';
 // import FacebookLogin from 'react-facebook-login';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import Button from '@material-ui/core/Button';
 
 import { loginUser, showLoader, hideLoader } from './actions/actions'
 
@@ -19,9 +20,8 @@ const override = css`
 class Login extends Component {
 
     render() {
-
         const amazonUrl = process.env.REACT_APP_AMAZON_LOGIN_URL
-        const loginStyles = { margin: "5px 0" }
+        const loginStyles = { }
 
         const responseGoogle = (response) => {
             if(response.error) {
@@ -42,25 +42,42 @@ class Login extends Component {
             this.props.showLoader()
         }
 
-        return (<div>
+        const loginTestUser = () => {
+            this.props.showLoader()
+            this.props.loginUser("1", "test")
+        }
+
+        return (<div style={{margin:"25px auto", display:"flex"}}>
             {(this.props.authenticated !== null && this.props.authenticated === true) &&
                 <Redirect
                     to={{
-                        pathname: "/",
+                        pathname: "/oauth2",
                         state: { from: this.props.location }
                     }}
                 />
             }
-            { !this.props.loading ? <div>
+            { !this.props.loading ? <div style={{margin:"0 auto"}}>
+
+            <div style={{display:"flex", justifyContent:"center", margin:"5px 0"}}>
+
+            <Button variant="contained" 
+            color="primary"
+            style={{display:"block", margin:"0 auto"}}
+                onClick={loginTestUser}
+            >Test User Login</Button>
+            </div>
+
+            <div style={{display:"flex", justifyContent:"center", margin:"5px 0"}}>
             <a href={amazonUrl}
-                style={loginStyles}
+                style={{height:"46px"}}
                 id="LoginWithAmazon">
                 <img border="0" alt="Login with Amazon"
                     src="https://images-na.ssl-images-amazon.com/images/G/01/lwa/btnLWA_gold_390x92.png"
-                    width="195" height="46" />
+                    width="195" height="46"/>
             </a>
+            </div>
 
-            <div style={loginStyles} onClick={componentClicked}>
+            <div style={{display:"flex", justifyContent:"center", margin:"5px 0"}} onClick={componentClicked}>
 
                 <GoogleLogin
                     clientId="1017567250931-f8o9bs3qj6o5r7ina2imkao6vjc7617c.apps.googleusercontent.com"
@@ -73,7 +90,7 @@ class Login extends Component {
                 />
             </div>
 
-            <div style={loginStyles}>
+            <div style={{display:"flex", justifyContent:"center", margin:"5px 0"}} onClick={componentClicked}>
                 <FacebookLogin
                     appId="830652277309841"
                     autoLoad={false}
@@ -113,14 +130,16 @@ class Login extends Component {
                     }
                 />
             </div>
-        </div>:<div style={{marginTop:"100px"}}>
+        </div>:<div style={{width:"100%", marginTop:"25px", display:"flex", justifyContent:"center", alignItems:"center"}}>
         <HashLoader
                 css={override}
                 sizeUnit={"px"}
-                size={250}
+                size={200}
                 color={'#000000'}
             />
             </div>}
+
+            
         </div>
         )
     }

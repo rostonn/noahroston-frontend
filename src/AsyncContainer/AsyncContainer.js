@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import App from '../App'
 import { validateTokenFromSessionStorage } from '../login/actions/actions'
 import { connect } from 'react-redux'
-  
+import Oauth2Home from '../oauth2Home/Oauth2Home'
 
 class AsyncContainer extends Component {
 
   constructor(props) {
-    super()
+    super(props)
     props.validateTokenFromSessionStorage()
   }
 
   render() {
     return (
       <div>
-          { this.props.tokenChecked ? <App/>:<span>Loading...</span>}
-      
+          { this.props.tokenChecked ? <Oauth2Home {...this.props} />:<span>Loading...</span>}
       </div>
     );
   }

@@ -4,23 +4,30 @@ let initialState = {
     tokenChecked: false,
     nextRedirect: '/home',
     user: null,
-    loading: false
+    loading: false,
+    tokenHeader: null,
+    tokenBody: null
 }
 
 export default function login(state = initialState, action) {
     switch (action.type) {
         case 'LOGOUT':
+            console.log("LOGOUT REDUCER")
             return {
                 ...state,
                 authenticated: false,
                 token: '',
-                user: null
+                user: null,
+                tokenHeader: null,
+                tokenBody: null
             }
         case 'LOGIN':
             return {
                 ...state,
                 authenticated: true,
-                token: action.token
+                token: action.token,
+                tokenHeader: action.tokenHeader,
+                tokenBody: action.tokenBody
             }
         case 'TOKEN_CHECKED_FALSE':
             return {
@@ -33,7 +40,9 @@ export default function login(state = initialState, action) {
                 tokenChecked: true,
                 authenticated: true,
                 token: action.token,
-                user: action.user
+                user: action.user,
+                tokenHeader: action.tokenHeader,
+                tokenBody: action.tokenBody
             }
         case 'SHOW_LOADER':
             return {

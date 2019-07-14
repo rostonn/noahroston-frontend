@@ -226,23 +226,30 @@ class App extends Component {
           <Paper className={this.props.classes.paper}>
             <article style={{ width: "36em", margin: "0 auto" }}>
               <Typography color='primary' align='center' component='h4' variant='h4'>
-                NoahRoston.com </Typography>
-              <p>Personal website. Frontend written in React and Redux. Backend written in golang. Hosted in AWS using EC2 and Amazon Relational Database Service (RDS). Served with NGINX.
-                </p>
+                NoahRoston.com Oauth2 Example</Typography>
+              <p>Oauth2 app within personal website. Written in React and Redux. Backend written in Go. Hosted in AWS using EC2 and Amazon Relational Database Service (RDS). Served with NGINX.
+              </p>
+              </article>
+              <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/noahroston-frontend">
+                <Button variant="contained" color="primary" className={classes.button}>
+                  <span style={{height:"32px"}}></span>
+                  <span style={{ marginLeft: "10px" }}>OAUTH2 Example</span>
+                </Button>
+              </a>
               <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/noahroston-frontend">
                 <Button variant="contained" color="primary" className={classes.button}>
                   <img src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
-                  <span style={{ marginLeft: "10px" }}>noahroston-frontend Repo</span>
+                  <span style={{ marginLeft: "10px" }}>frontend repo</span>
                 </Button>
               </a>
 
               <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/noahroston_backend">
                 <Button variant="contained" color="primary" className={classes.button}>
                   <img src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
-                  <span style={{ marginLeft: "10px" }}>noahroston-backend</span>
+                  <span style={{ marginLeft: "10px" }}>backend repo</span>
                 </Button>
               </a>
-            </article>
+            
           </Paper>
 
           <Paper className={this.props.classes.paper}>

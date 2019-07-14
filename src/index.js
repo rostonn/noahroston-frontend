@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import AsyncContainer from './AsyncContainer/AsyncContainer';
+import AppContainer from './AppContainer';
 import registerServiceWorker from './registerServiceWorker';
 import { Provider } from "react-redux";
 import { ThemeProvider } from '@material-ui/styles';
@@ -30,7 +30,7 @@ const theme = createMuiTheme({
 ReactDOM.render(
     <Provider store={store}>
         <ThemeProvider theme={theme}>
-            <AsyncContainer />
+            <AppContainer />
         </ThemeProvider>
     </Provider>,
 

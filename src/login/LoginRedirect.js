@@ -34,7 +34,7 @@ class LoginRedirect extends Component {
       {(this.props.authenticated !== null && this.props.authenticated === false) &&
         <Redirect
           to={{
-            pathname: "/login",
+            pathname: "/oauth2/login",
             state: { from: this.props.location }
           }}
         />
@@ -42,7 +42,7 @@ class LoginRedirect extends Component {
       {(this.props.authenticated !== null && this.props.authenticated === true) &&
         <Redirect
           to={{
-            pathname: "/",
+            pathname: "/oauth2/",
             state: { from: this.props.location }
           }}
         />
