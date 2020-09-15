@@ -131,7 +131,7 @@ class App extends Component {
                 to="about"
                 spy={true}
                 smooth={true}
-                duration={500}
+                duration={2000}
                 style={{ margin: "0 25px", cursor: "pointer" }}
                 offset={-75}
               >
@@ -238,52 +238,6 @@ class App extends Component {
                 </Button>
               </a>
             
-          </Paper>
-
-          <Paper className={this.props.classes.paper}>
-            <article style={{ width: "36em", margin: "0 auto" }}>
-              <Typography color='primary' align='center' component='h4' variant='h4'>
-                Angular Weather App</Typography>
-              <p>Frontend application written in Angular. Gets a user's city information and weather based on their
-                Geolocation. Hosted on AWS EC2 ubuntu machine. Served with NGINX</p>
-
-              <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://weather.noahroston.com">
-                <Button variant="contained" color="primary" className={classes.button}>
-                  <span style={{ height: "32px" }}></span>
-                  <span style={{ marginLeft: "10px" }}>Angular Weather App</span>
-                </Button>
-              </a>
-
-              <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/Angular-Weather">
-                <Button variant="contained" color="primary" className={classes.button}>
-                  <img alt="github" src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
-                  <span style={{ marginLeft: "10px" }}>Angular Weather Repo</span>
-                </Button>
-              </a>
-            </article>
-          </Paper>
-
-          <Paper className={this.props.classes.paper}>
-            <article style={{ width: "36em", margin: "0 auto" }}>
-              <Typography color='primary' align='center' component='h4' variant='h4'>
-                Angular Calculator App
-                </Typography>
-              <p>Frontend application written in Angular. iPhone calculator clone. Keyboard input included! hosted on amazon served with NGINX</p>
-            </article>
-
-            <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://calculator.noahroston.com">
-              <Button variant="contained" color="primary" className={classes.button}>
-                <span style={{ height: "32px" }}></span>
-                <span style={{ marginLeft: "10px" }}>Angular iPhone Calculator</span>
-              </Button>
-            </a>
-
-            <a rel="noopener noreferrer" style={{ textDecoration: 'none' }} target="_blank" href="https://github.com/rostonn/Angular-iPhone-Calculator">
-              <Button variant="contained" color="primary" className={classes.button}>
-                <img alt="github" src={process.env.PUBLIC_URL + '/GitHub-Mark-Light-32px.png'} />
-                <span style={{ marginLeft: "10px" }}>Angular iPhone Calculator Repo</span>
-              </Button>
-            </a>
           </Paper>
 
           <Paper className={this.props.classes.paper}>
